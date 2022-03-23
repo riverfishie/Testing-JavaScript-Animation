@@ -1,0 +1,94 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Messing with JavaScript animation:)))";
+
+    <div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+    <p>I want to make a little box that bounces like a rubber ball!!!!</p>
+    <p>But I need to change its position within the container somehow :) Will figure it out....</p>
+    <p>Then I need to make it start going back up once it reaches the 250 pixels instead of stopping</p>
+    <p>......Make it go foreeeeveerrrr >:)</p>
+}
+
+
+
+<style>
+#myContainer, #myContainer2 {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background: blue;
+}
+#myAnimation, #myAnimation2 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+</style>
+
+<p>
+<button onclick="myMove(), myMove2()">Click Me</button> 
+</p>
+@*<p>
+<button onclick="myMove2()">Click Me</button> 
+</p>*@
+
+
+
+@*Maybe if I make this use classes instead of IDs I can use the same class name for both :oooo idk though*@
+<div id ="myContainer">
+<div id ="myAnimation"></div>
+</div>
+<div id ="myContainer2">
+<div id ="myAnimation2"></div>
+</div>
+
+
+
+<script>
+
+var id = null;
+var id2 = null;
+
+function myMove() {
+  var elem = document.getElementById("myAnimation");   
+  var pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 5); //5 fps
+  function frame() {
+    if (pos == 250) { // if the position of the square is 250px,
+      clearInterval(id); //It stops? Not sure what clearInterval means
+    } else { //if not, it adds 1px to the style every time it goes through this, 
+      pos++; 
+      elem.style.top = pos + 'px'; //which makes it travel along until it reaches there
+      elem.style.left = pos + 'px'; 
+    }
+  }
+}
+
+function myMove2() {
+  var elem2 = document.getElementById("myAnimation2");   
+  var pos2 = 0;
+  clearInterval(id2);
+  id2 = setInterval(frame, 5); //Made a second one lol but it moves with the same button
+  function frame() {
+    if (pos2 == 250) {
+      clearInterval(id2);
+    } else {
+      pos2++; 
+      elem2.style.top = pos2 + 'px'; 
+      elem2.style.left = pos2 + 'px'; 
+    }
+  }
+}
+
+
+
+
+
+
+</script>
+
