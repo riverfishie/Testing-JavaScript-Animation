@@ -25,6 +25,7 @@
   width: 50px;
   height: 50px;
   position: absolute;
+  left: 100px;
   background-color: red;
 }
 </style>
@@ -64,26 +65,26 @@ function myMove() {
     } else { //if not, it adds 1px to the style every time it goes through this, 
       pos++; 
       elem.style.top = pos + 'px'; //which makes it travel along until it reaches there
-      elem.style.left = pos + 'px'; 
+      //elem.style.left = pos + 'px'; 
     }
   }
 }
 
-function myMove2() {
-  var elem2 = document.getElementById("myAnimation2");   
-  var pos2 = 0;
-  clearInterval(id2);
-  id2 = setInterval(frame, 5); //Made a second one lol but it moves with the same button
-  function frame() {
-    if (pos2 == 250) {
-      clearInterval(id2);
-    } else {
-      pos2++; 
-      elem2.style.top = pos2 + 'px'; 
-      elem2.style.left = pos2 + 'px'; 
-    }
-  }
-}
+//function myMove2() {
+//  var elem2 = document.getElementById("myAnimation2");   
+//  var pos2 = 0;
+//  clearInterval(id2);
+//  id2 = setInterval(frame, 5); //Made a second one lol but it moves with the same button
+//  function frame() {
+//    if (pos2 == 250) {
+//      clearInterval(id2);
+//    } else {
+//      pos2++; 
+//      elem2.style.top = pos2 + 'px'; 
+//      elem2.style.left = pos2 + 'px'; 
+//    }
+//  }
+//}
 
 
 

@@ -1,0 +1,97 @@
+﻿@page
+@model Animation_test.Pages.Index1Model
+@{
+}
+
+<script>
+
+var id = null;
+
+//function myMove() {
+//  var element = document.getElementById("myAnimation");   
+//  var position = 0;
+//  clearInterval(id);
+//  id = setInterval(frame, 5);
+  
+//  function frame() {
+//    if (position == 250) {
+//      clearInterval(id); 
+//    } else {
+//      position++; 
+//      element.style.top = position + 'px'; 
+//      //elem.style.left = pos + 'px'; 
+//    }
+//  }
+//}
+
+//function one - setting the element that will be moving. Setting the position. Setting the framerate
+
+//function two - if it gets to 250,
+//do the opposite of what it was originally doing
+//else, position ++ and the style top == position + px
+
+function myMove() {
+  var element = document.getElementById("myAnimation");   
+  var position = 0;
+  clearInterval(id);
+  id = setInterval(bounce, 5); }
+
+  function bounce() 
+  {
+      var element = document.getElementById("myAnimation");   
+      var position = 0;
+      clearInterval(id);
+      id = setInterval(bounce, 5);
+      let x = 0;
+      let y = 0;
+      while (x != null) 
+      {
+          if (x <= 250) 
+          {
+              y++;
+              position++;
+              element.style.top = position + 'px'; //Sigh..... it doesn't work.... No matter.. will try again tomorrow
+          }
+          else if (y >= 250) 
+          {
+              x++;
+              position--;
+              element.sytle.top = position + 'px';
+          }
+      }
+  }
+
+  function stop() 
+  {
+      x = null;
+  }
+
+</script>
+
+<style>
+#myContainer, #myContainer2 {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background: blue;
+}
+#myAnimation, #myAnimation2 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 100px;
+  background-color: red;
+}
+</style>
+
+<p>
+<button onclick="bounce()">Bounce</button> 
+<button onclick="stop()">Stop</button>
+</p>
+
+<div id ="myContainer">
+<div id ="myAnimation"></div>
+</div>
+
+
+
